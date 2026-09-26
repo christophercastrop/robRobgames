@@ -1,0 +1,230 @@
+# Open Cloud endpoints (extraído de Roblox/creator-docs content/en-us/reference/cloud/openapi.json, commit del 2026-09-26)
+# Formato: METHOD path | summary | scopes | stability | rate limits (perApiKeyOwner/perOauth2) | HS = usable desde HttpService
+GET /ads-management/v1/advertisable-universes | List advertisable universes | ad.campaign:read | EXPERIMENTAL | perApi:600/MIN;perOau:600/MIN | 
+GET /ads-management/v1/billing-accounts | List billing accounts | ad.billing:read | EXPERIMENTAL | perApi:600/MIN;perOau:600/MIN | 
+GET /ads-management/v1/billing-accounts/{id} | Get a billing account | ad.billing:read | EXPERIMENTAL | perApi:600/MIN;perOau:600/MIN | 
+GET /ads-management/v1/campaign-options | Get campaign options | ad.campaign:read | EXPERIMENTAL | perApi:600/MIN;perOau:600/MIN | 
+GET /ads-management/v1/campaigns | List campaigns | ad.campaign:read | EXPERIMENTAL | perApi:600/MIN;perOau:600/MIN | 
+POST /ads-management/v1/campaigns | Create a campaign | ad.campaign:write | EXPERIMENTAL | perApi:60/MIN;perOau:60/MIN | 
+GET /ads-management/v1/campaigns/{id} | Get a campaign | ad.campaign:read | EXPERIMENTAL | perApi:600/MIN;perOau:600/MIN | 
+PATCH /ads-management/v1/campaigns/{id} | Update a campaign | ad.campaign:write | EXPERIMENTAL | perApi:60/MIN;perOau:60/MIN | 
+POST /ads-management/v1/campaigns:batchGetStatus | Batch get campaign status | ad.campaign:read | EXPERIMENTAL | perApi:1000/MIN;perOau:1000/MIN | 
+GET /ads-management/v1/creatives | List creatives | ad.campaign:read | EXPERIMENTAL | perApi:600/MIN;perOau:600/MIN | 
+POST /analytics-query-api/v1/universes/{universeId}/dimension-values | Queries dimension values for a universe. | universe.analytics:read | BETA | perApi:30/MIN;perOau:30/MIN | 
+POST /analytics-query-api/v1/universes/{universeId}/metrics | Queries time series metric data for a universe. | universe.analytics:read | BETA | perApi:30/MIN;perOau:30/MIN | 
+GET /analytics-query-api/v1/universes/{universeId}/operations/dimension-values/{operationId} | Retrieves the result of a long-running dimension v | universe.analytics:read | BETA | perApi:3000/MIN;perOau:3000/MIN | 
+GET /analytics-query-api/v1/universes/{universeId}/operations/metrics/{operationId} | Retrieves the result of a long-running metrics que | universe.analytics:read | BETA | perApi:3000/MIN;perOau:3000/MIN | 
+PATCH /asset-permissions-api/v1/assets/permissions | Grant a subject permission to multiple assets. | asset-permissions:write | BETA | perApi:100/MIN | 
+POST /assets/v1/assets | Creates an asset with provided content and metadat | asset:read,asset:write | BETA | perApi:120/MIN;perOau:120/MIN | 
+GET /assets/v1/assets/{assetId} | Retrieve specific asset metadata. Include the `rea | asset:read | BETA | perApi:120/MIN;perOau:120/MIN | HS
+PATCH /assets/v1/assets/{assetId} | Updates an asset with provided content and metadat | asset:read,asset:write | BETA | perApi:120/MIN;perOau:120/MIN | HS
+GET /assets/v1/assets/{assetId}/versions | List Asset Versions of an Asset | asset:read | BETA | perApi:100/MIN;perOau:100/MIN | HS
+GET /assets/v1/assets/{assetId}/versions/{versionNumber} | Get Asset Version | asset:read | BETA | perApi:100/MIN;perOau:100/MIN | HS
+POST /assets/v1/assets/{assetId}/versions:rollback | Rollback an asset to a previous version. | asset:read,asset:write | BETA | perApi:100/MIN;perOau:100/MIN | 
+POST /assets/v1/assets/{assetId}:archive | Archives the asset. | asset:read,asset:write | BETA | perApi:100/MIN;perOau:100/MIN | 
+POST /assets/v1/assets/{assetId}:restore | Restores an archived asset. | asset:read,asset:write | BETA | perApi:100/MIN;perOau:100/MIN | 
+GET /assets/v1/operations/{operationId} | Get the result of an asset creation or update. | asset:read | BETA | perApi:300/MIN;perOau:300/MIN | 
+POST /cloud/v2/creator-store-products | Create Creator Store Product | creator-store-product:write | BETA | perApi:30/MIN;perOau:30/MIN | HS
+GET /cloud/v2/creator-store-products/{creator_store_product_id} | Get Creator Store Product | creator-store-product:read | BETA | perApi:30/MIN;perOau:30/MIN | HS
+PATCH /cloud/v2/creator-store-products/{creator_store_product_id} | Update Creator Store Product | creator-store-product:write | BETA | perApi:30/MIN;perOau:30/MIN | HS
+GET /cloud/v2/groups/{group_id} | Get Group |  | BETA | perApi:150/MIN;perOau:30/MIN | HS
+GET /cloud/v2/groups/{group_id}/forum-categories | List Group Forum Categories | group-forum:read | BETA | perApi:150/MIN;perOau:30/MIN | 
+GET /cloud/v2/groups/{group_id}/forum-categories/{forum_category_id}/posts | List Group Forum Posts | group-forum:read | BETA | perApi:150/MIN;perOau:30/MIN | 
+GET /cloud/v2/groups/{group_id}/forum-categories/{forum_category_id}/posts/{post_id}/comments | List Group Forum Comments | group-forum:read | BETA | perApi:150/MIN;perOau:30/MIN | 
+GET /cloud/v2/groups/{group_id}/join-requests | List Group Join Requests | group:read | BETA | perApi:300/MIN;perOau:90/MIN | HS
+POST /cloud/v2/groups/{group_id}/join-requests/{join_request_id}:accept | Accept Group Join Request | group:write | BETA | perApi:100/MIN;perOau:90/MIN | HS
+POST /cloud/v2/groups/{group_id}/join-requests/{join_request_id}:decline | Decline Group Join Request | group:write | BETA | perApi:100/MIN;perOau:90/MIN | HS
+GET /cloud/v2/groups/{group_id}/memberships | List Group Memberships |  | BETA | perApi:300/MIN;perOau:90/MIN | HS
+PATCH /cloud/v2/groups/{group_id}/memberships/{membership_id} | Update Group Membership | group:write | BETA | perApi:300/MIN;perOau:90/MIN | HS
+POST /cloud/v2/groups/{group_id}/memberships/{membership_id}:assignRole | Assign Role Group Membership | group:write | BETA | perApi:300/MIN;perOau:90/MIN | HS
+POST /cloud/v2/groups/{group_id}/memberships/{membership_id}:unassignRole | Unassign Role Group Membership | group:write | BETA | perApi:300/MIN;perOau:90/MIN | HS
+GET /cloud/v2/groups/{group_id}/roles | List Group Roles | group:read | BETA | perApi:300/MIN;perOau:90/MIN | HS
+GET /cloud/v2/groups/{group_id}/roles/{role_id} | Get Group Role | group:read | BETA | perApi:300/MIN;perOau:90/MIN | HS
+GET /cloud/v2/universes/{universeId}/secrets | List Secrets | universe.secret:read | BETA | perApi:120/MIN;perOau:120/MIN | 
+POST /cloud/v2/universes/{universeId}/secrets | Create Secret | universe.secret:write | BETA | perApi:120/MIN;perOau:120/MIN | 
+GET /cloud/v2/universes/{universeId}/secrets/public-key | Get Public Key | universe.secret:read | BETA | perApi:120/MIN;perOau:120/MIN | 
+DELETE /cloud/v2/universes/{universeId}/secrets/{secretId} | Delete Secret | universe.secret:write | BETA | perApi:120/MIN;perOau:120/MIN | 
+PATCH /cloud/v2/universes/{universeId}/secrets/{secretId} | Update Secret | universe.secret:write | BETA | perApi:120/MIN;perOau:120/MIN | 
+GET /cloud/v2/universes/{universe_id} | Get Universe |  | STABLE | perApi:100/MIN;perOau:100/MIN | HS
+PATCH /cloud/v2/universes/{universe_id} | Update Universe | universe:write | STABLE | perApi:100/MIN;perOau:100/MIN | HS
+GET /cloud/v2/universes/{universe_id}/data-stores | List Data Stores | universe-datastores.control:list | STABLE | perApi:1000000/MIN | HS
+DELETE /cloud/v2/universes/{universe_id}/data-stores/{data_store_id} | Delete Data Store | universe-datastores.control:delete | BETA | perApi:1000000/MIN | HS
+GET /cloud/v2/universes/{universe_id}/data-stores/{data_store_id}/entries | List Data Store Entries | universe-datastores.objects:list | STABLE | perApi:1000000/MIN | HS
+POST /cloud/v2/universes/{universe_id}/data-stores/{data_store_id}/entries | Create Data Store Entry | universe-datastores.objects:create | STABLE | perApi:1000000/MIN | HS
+DELETE /cloud/v2/universes/{universe_id}/data-stores/{data_store_id}/entries/{entry_id} | Delete Data Store Entry | universe-datastores.objects:delete | STABLE | perApi:1000000/MIN | HS
+GET /cloud/v2/universes/{universe_id}/data-stores/{data_store_id}/entries/{entry_id} | Get Data Store Entry | universe-datastores.objects:read | STABLE | perApi:1000000/MIN | HS
+PATCH /cloud/v2/universes/{universe_id}/data-stores/{data_store_id}/entries/{entry_id} | Update Data Store Entry | universe-datastores.objects:update | STABLE | perApi:1000000/MIN | HS
+POST /cloud/v2/universes/{universe_id}/data-stores/{data_store_id}/entries/{entry_id}:increment | Increment Data Store Entry | universe-datastores.objects:create,universe-datastores.objects:update | STABLE | perApi:1000000/MIN | HS
+GET /cloud/v2/universes/{universe_id}/data-stores/{data_store_id}/entries/{entry_id}:listRevisions | List Data Store Entry Revisions | universe-datastores.versions:list | STABLE | perApi:1000000/MIN | HS
+POST /cloud/v2/universes/{universe_id}/data-stores/{data_store_id}:undelete | Undelete Data Store | universe-datastores.control:delete | BETA | perApi:1000000/MIN | 
+POST /cloud/v2/universes/{universe_id}/data-stores:snapshot | Snapshot Data Stores | universe-datastores.control:snapshot | STABLE | perApi:60/MIN | HS
+POST /cloud/v2/universes/{universe_id}/luau-execution-session-task-binary-inputs | Create Luau Execution Session Task Binary Input | universe.place.luau-execution-session:write | STABLE | perApi:5/MIN | 
+GET /cloud/v2/universes/{universe_id}/memory-store/operations/{operation_id} | Get Memory Store Flush Operation | memory-store:get | BETA | perApi:1000000/MIN | HS
+POST /cloud/v2/universes/{universe_id}/memory-store/queues/{queue_id}/items | Create Memory Store Queue Item | memory-store.queue:add,memory-store.queue:add | STABLE | perApi:1000000/MIN | HS
+POST /cloud/v2/universes/{universe_id}/memory-store/queues/{queue_id}/items:discard | Discard Memory Store Queue Items | memory-store.queue:discard,memory-store.queue:discard | STABLE | perApi:1000000/MIN | HS
+GET /cloud/v2/universes/{universe_id}/memory-store/queues/{queue_id}/items:read | Read Memory Store Queue Items | memory-store.queue:dequeue,memory-store.queue:dequeue | STABLE | perApi:1000000/MIN | HS
+GET /cloud/v2/universes/{universe_id}/memory-store/sorted-maps/{sorted_map_id}/items | List Memory Store Sorted Map Items | memory-store.sorted-map:read,memory-store.sorted-map:read | STABLE | perApi:1000000/MIN | HS
+POST /cloud/v2/universes/{universe_id}/memory-store/sorted-maps/{sorted_map_id}/items | Create Memory Store Sorted Map Item | memory-store.sorted-map:write,memory-store.sorted-map:write | STABLE | perApi:1000000/MIN | HS
+DELETE /cloud/v2/universes/{universe_id}/memory-store/sorted-maps/{sorted_map_id}/items/{item_id} | Delete Memory Store Sorted Map Item | memory-store.sorted-map:write,memory-store.sorted-map:write | STABLE | perApi:1000000/MIN | HS
+GET /cloud/v2/universes/{universe_id}/memory-store/sorted-maps/{sorted_map_id}/items/{item_id} | Get Memory Store Sorted Map Item | memory-store.sorted-map:read,memory-store.sorted-map:read | STABLE | perApi:1000000/MIN | HS
+PATCH /cloud/v2/universes/{universe_id}/memory-store/sorted-maps/{sorted_map_id}/items/{item_id} | Update Memory Store Sorted Map Item | memory-store.sorted-map:write,memory-store.sorted-map:write | STABLE | perApi:1000000/MIN | HS
+POST /cloud/v2/universes/{universe_id}/memory-store:flush | Flush Memory Store | memory-store:flush,memory-store:flush | STABLE | perApi:1000000/MIN | HS
+GET /cloud/v2/universes/{universe_id}/ordered-data-stores/{ordered_data_store_id}/scopes/{scope_id}/entries | List Ordered Data Store Entries | universe.ordered-data-store.scope.entry:read | STABLE | perApi:1000000/MIN | HS
+POST /cloud/v2/universes/{universe_id}/ordered-data-stores/{ordered_data_store_id}/scopes/{scope_id}/entries | Create Ordered Data Store Entry | universe.ordered-data-store.scope.entry:write | STABLE | perApi:1000000/MIN | HS
+DELETE /cloud/v2/universes/{universe_id}/ordered-data-stores/{ordered_data_store_id}/scopes/{scope_id}/entries/{entry_id} | Delete Ordered Data Store Entry | universe.ordered-data-store.scope.entry:write | STABLE | perApi:1000000/MIN | HS
+GET /cloud/v2/universes/{universe_id}/ordered-data-stores/{ordered_data_store_id}/scopes/{scope_id}/entries/{entry_id} | Get Ordered Data Store Entry | universe.ordered-data-store.scope.entry:read | STABLE | perApi:1000000/MIN | HS
+PATCH /cloud/v2/universes/{universe_id}/ordered-data-stores/{ordered_data_store_id}/scopes/{scope_id}/entries/{entry_id} | Update Ordered Data Store Entry | universe.ordered-data-store.scope.entry:write | STABLE | perApi:1000000/MIN | HS
+POST /cloud/v2/universes/{universe_id}/ordered-data-stores/{ordered_data_store_id}/scopes/{scope_id}/entries/{entry_id}:increment | Increment Ordered Data Store Entry | universe.ordered-data-store.scope.entry:write | STABLE | perApi:1000000/MIN | HS
+GET /cloud/v2/universes/{universe_id}/places/{place_id} | Get Place |  | STABLE | perApi:100/MIN;perOau:100/MIN | HS
+PATCH /cloud/v2/universes/{universe_id}/places/{place_id} | Update Place | universe.place:write | STABLE | perApi:100/MIN;perOau:100/MIN | HS
+GET /cloud/v2/universes/{universe_id}/places/{place_id}/instances/{instance_id} | Get Instance | universe.place.instance:read | BETA | perApi:45/MIN | HS
+PATCH /cloud/v2/universes/{universe_id}/places/{place_id}/instances/{instance_id} | Update Instance | universe.place.instance:write | BETA | perApi:45/MIN | HS
+GET /cloud/v2/universes/{universe_id}/places/{place_id}/instances/{instance_id}/operations/{operation_id} | Get Update Instance Operation |  | BETA | perApi:45/MIN | HS
+GET /cloud/v2/universes/{universe_id}/places/{place_id}/instances/{instance_id}:listChildren | List Instance Children | universe.place.instance:read | BETA | perApi:45/MIN | 
+POST /cloud/v2/universes/{universe_id}/places/{place_id}/luau-execution-session-tasks | Create Luau Execution Session Task | universe.place.luau-execution-session:write | STABLE | perApi:5/MIN | HS
+GET /cloud/v2/universes/{universe_id}/places/{place_id}/user-restrictions | List User Restrictions | universe.user-restriction:read | BETA | perApi:150/SEC;perOau:30/SEC | HS
+GET /cloud/v2/universes/{universe_id}/places/{place_id}/user-restrictions/{user_restriction_id} | Get User Restriction | universe.user-restriction:read | BETA | perApi:150/SEC;perOau:30/SEC | HS
+PATCH /cloud/v2/universes/{universe_id}/places/{place_id}/user-restrictions/{user_restriction_id} | Update User Restriction | universe.user-restriction:write | BETA | perApi:150/SEC;perOau:30/SEC | HS
+POST /cloud/v2/universes/{universe_id}/places/{place_id}/versions/{version_id}/luau-execution-session-tasks | Create Luau Execution Session Task | universe.place.luau-execution-session:write | STABLE | perApi:5/MIN | HS
+GET /cloud/v2/universes/{universe_id}/places/{place_id}/versions/{version_id}/luau-execution-sessions/{luau_execution_session_id}/tasks/{task_id} | Get Luau Execution Session Task | universe.place.luau-execution-session:read,universe.place.luau-execution-session:write | STABLE | perApi:200/MIN | HS
+GET /cloud/v2/universes/{universe_id}/places/{place_id}/versions/{version_id}/luau-execution-sessions/{luau_execution_session_id}/tasks/{task_id}/logs | List Luau Execution Session Task Logs | universe.place.luau-execution-session:read,universe.place.luau-execution-session:write | STABLE | perApi:45/MIN | HS
+GET /cloud/v2/universes/{universe_id}/subscription-products/{subscription_product_id}/subscriptions/{subscription_id} | Get Subscription | universe:write,universe.subscription-product.subscription:read | BETA | perApi:500/MIN;perOau:3/SEC | 
+GET /cloud/v2/universes/{universe_id}/user-restrictions | List User Restrictions | universe.user-restriction:read | BETA | perApi:150/SEC;perOau:30/SEC | HS
+GET /cloud/v2/universes/{universe_id}/user-restrictions/{user_restriction_id} | Get User Restriction | universe.user-restriction:read | BETA | perApi:150/SEC;perOau:30/SEC | HS
+PATCH /cloud/v2/universes/{universe_id}/user-restrictions/{user_restriction_id} | Update User Restriction | universe.user-restriction:write | BETA | perApi:150/SEC;perOau:30/SEC | HS
+GET /cloud/v2/universes/{universe_id}/user-restrictions:listLogs | List User Restriction Logs | universe.user-restriction:read | BETA | perApi:150/SEC;perOau:30/SEC | HS
+POST /cloud/v2/universes/{universe_id}:generateSpeechAsset | Generate Speech Asset | universe:write,asset:read,asset:write | BETA | perApi:4/SEC;perOau:4/SEC | 
+POST /cloud/v2/universes/{universe_id}:publishMessage | Publish Universe Message | universe-messaging-service:publish | STABLE | perApi:5000/MIN;perOau:5000/MIN | HS
+POST /cloud/v2/universes/{universe_id}:restartServers | Restart Universe Servers | universe:write | STABLE | perApi:30/MIN;perOau:30/MIN | HS
+POST /cloud/v2/universes/{universe_id}:translateText | Translate Text | universe:write | BETA | perApi:10000/MIN | 
+GET /cloud/v2/users/{user_id} | Get User | user.advanced:read,user.social:read | STABLE | perApi:1000/MIN;perOau:10/MIN | HS
+GET /cloud/v2/users/{user_id}/asset-quotas | List Asset Quotas | asset:read | BETA | perApi:60/MIN;perOau:60/MIN | 
+GET /cloud/v2/users/{user_id}/inventory-items | List Inventory Items | user.inventory-item:read | BETA | perApi:100/MIN;perOau:20/MIN | HS
+POST /cloud/v2/users/{user_id}/notifications | Create User Notification | user.user-notification:write | STABLE | perApi:4000/SEC;perOau:4000/SEC | HS
+GET /cloud/v2/users/{user_id}/operations/{operation_id} | Get User Thumbnail Generation Operation |  | STABLE | perApi:1000/MIN;perOau:10/MIN | HS
+GET /cloud/v2/users/{user_id}:generateThumbnail | Generate User Thumbnail |  | STABLE | perApi:1000/MIN;perOau:10/MIN | HS
+GET /creator-configs-public-api/v1/configs/universes/{universeId}/repositories/{repository} | Gets published config values without metadata. | universe:read | BETA | perApi:100/MIN;perOau:100/MIN | HS
+DELETE /creator-configs-public-api/v1/configs/universes/{universeId}/repositories/{repository}/draft | Resets (deletes) the current draft. | universe:write | BETA | perApi:50/MIN;perOau:50/MIN | HS
+GET /creator-configs-public-api/v1/configs/universes/{universeId}/repositories/{repository}/draft | Gets the current draft. | universe:read | BETA | perApi:100/MIN;perOau:100/MIN | HS
+PATCH /creator-configs-public-api/v1/configs/universes/{universeId}/repositories/{repository}/draft | Partially updates the draft. | universe:write | BETA | perApi:50/MIN;perOau:50/MIN | HS
+PUT /creator-configs-public-api/v1/configs/universes/{universeId}/repositories/{repository}/draft:overwrite | Overwrites the entire draft with the request paylo | universe:write | BETA | perApi:50/MIN;perOau:50/MIN | HS
+GET /creator-configs-public-api/v1/configs/universes/{universeId}/repositories/{repository}/full | Gets full config with metadata. | universe:read | BETA | perApi:100/MIN;perOau:100/MIN | HS
+POST /creator-configs-public-api/v1/configs/universes/{universeId}/repositories/{repository}/publish | Publishes draft changes. | universe:write | BETA | perApi:10/MIN;perOau:10/MIN | HS
+GET /creator-configs-public-api/v1/configs/universes/{universeId}/repositories/{repository}/revisions | Lists revision history. | universe:read | BETA | perApi:100/MIN;perOau:100/MIN | HS
+POST /creator-configs-public-api/v1/configs/universes/{universeId}/repositories/{repository}/revisions/{revisionId}/restore | Stages a revert to a previous revision. | universe:write | BETA | perApi:10/MIN;perOau:10/MIN | HS
+GET /creator-configs-public-api/v1/experimentation/universes/{universeId}/experiments | Lists experiments for a universe. | universe:read | EXPERIMENTAL | perApi:100/MIN;perOau:100/MIN | 
+POST /creator-configs-public-api/v1/experimentation/universes/{universeId}/experiments | Creates a new experiment for a universe. | universe:write | EXPERIMENTAL | perApi:10/MIN;perOau:10/MIN | 
+DELETE /creator-configs-public-api/v1/experimentation/universes/{universeId}/experiments/{experimentId} | Discards an experiment. | universe:write | EXPERIMENTAL | perApi:10/MIN;perOau:10/MIN | 
+GET /creator-configs-public-api/v1/experimentation/universes/{universeId}/experiments/{experimentId} | Gets an experiment by ID. | universe:read | EXPERIMENTAL | perApi:100/MIN;perOau:100/MIN | 
+PATCH /creator-configs-public-api/v1/experimentation/universes/{universeId}/experiments/{experimentId} | Updates an existing experiment. | universe:write | EXPERIMENTAL | perApi:10/MIN;perOau:10/MIN | 
+GET /creator-configs-public-api/v1/experimentation/universes/{universeId}/experiments/{experimentId}/stats | Gets diagnostic stats for an experiment. | universe:read | EXPERIMENTAL | perApi:100/MIN;perOau:100/MIN | 
+POST /creator-configs-public-api/v1/experimentation/universes/{universeId}/experiments/{experimentId}:complete | Completes an experiment by stopping it and rolling | universe:write | EXPERIMENTAL | perApi:10/MIN;perOau:10/MIN | 
+POST /creator-configs-public-api/v1/experimentation/universes/{universeId}/experiments/{experimentId}:schedule | Schedules an experiment to start at a future UTC t | universe:write | EXPERIMENTAL | perApi:10/MIN;perOau:10/MIN | 
+POST /creator-configs-public-api/v1/experimentation/universes/{universeId}/experiments/{experimentId}:start | Starts an experiment immediately. | universe:write | EXPERIMENTAL | perApi:10/MIN;perOau:10/MIN | 
+POST /creator-configs-public-api/v1/experimentation/universes/{universeId}/experiments:calculateMde | Calculates the Minimum Detectable Effect (MDE) for | universe:read | EXPERIMENTAL | perApi:10/MIN;perOau:10/MIN | 
+GET /creator-configs-public-api/v1/experimentation/universes/{universeId}/operations/{operationId} | Gets the status of an experiment async operation. | universe:read | EXPERIMENTAL | perApi:100/MIN;perOau:100/MIN | 
+GET /datastores/v1/universes/{universeId}/standard-datastores | List data stores in an experience | universe-datastores.control:list | BETA | perApi:5000/MIN | 
+GET /datastores/v1/universes/{universeId}/standard-datastores/datastore/entries | List entries | universe-datastores.objects:list | BETA | perApi:5000/MIN | 
+DELETE /datastores/v1/universes/{universeId}/standard-datastores/datastore/entries/entry | Delete entry. | universe-datastores.objects:delete | BETA | perApi:5000/MIN | 
+GET /datastores/v1/universes/{universeId}/standard-datastores/datastore/entries/entry | Get entry. | universe-datastores.objects:read | BETA | perApi:5000/MIN | 
+POST /datastores/v1/universes/{universeId}/standard-datastores/datastore/entries/entry | Set entry. | universe-datastores.objects:update,universe-datastores.objects:create,universe-datastores.control:create | BETA | perApi:5000/MIN | 
+POST /datastores/v1/universes/{universeId}/standard-datastores/datastore/entries/entry/increment | Increment entry | universe-datastores.objects:update,universe-datastores.objects:create,universe-datastores.control:create | BETA | perApi:5000/MIN | 
+GET /datastores/v1/universes/{universeId}/standard-datastores/datastore/entries/entry/versions | List entry versions | universe-datastores.versions:list | BETA | perApi:5000/MIN | 
+GET /datastores/v1/universes/{universeId}/standard-datastores/datastore/entries/entry/versions/version | Get entry version. | universe-datastores.versions:read | BETA | perApi:5000/MIN | 
+POST /developer-products/v2/universes/{universeId}/developer-products | Create developer product | developer-product:write | BETA | perApi:3/SEC;perOau:3/SEC | HS
+GET /developer-products/v2/universes/{universeId}/developer-products/creator | List developer products by universe with configura | developer-product:read | BETA | perApi:10/SEC;perOau:10/SEC | HS
+PATCH /developer-products/v2/universes/{universeId}/developer-products/{productId} | Update developer product | developer-product:write | BETA | perApi:3/SEC;perOau:3/SEC | HS
+GET /developer-products/v2/universes/{universeId}/developer-products/{productId}/creator | Get developer product with configuration details | developer-product:read | BETA | perApi:10/SEC;perOau:10/SEC | HS
+POST /game-passes/v1/universes/{universeId}/game-passes | Create game pass | game-pass:write | BETA | perApi:5/SEC;perOau:5/SEC | HS
+GET /game-passes/v1/universes/{universeId}/game-passes/creator | List game passes by universe with configuration de | game-pass:read | BETA | perApi:10/SEC;perOau:10/SEC | HS
+PATCH /game-passes/v1/universes/{universeId}/game-passes/{gamePassId} | Update game pass | game-pass:write | BETA | perApi:5/SEC;perOau:5/SEC | HS
+GET /game-passes/v1/universes/{universeId}/game-passes/{gamePassId}/creator | Get game pass with configuration details | game-pass:read | BETA | perApi:10/SEC;perOau:10/SEC | HS
+PATCH /legacy-badges/v1/badges/{badgeId} | Updates badge configuration. | legacy-universe.badge:write | EXPERIMENTAL | perApi:100/MIN;perOau:100/MIN | 
+POST /legacy-badges/v1/universes/{universeId}/badges | Creates a new badge. | legacy-universe.badge:manage-and-spend-robux | EXPERIMENTAL | perApi:100/MIN;perOau:100/MIN | 
+GET /legacy-develop/v1/places/{placeId}/teamcreate/active_session/members | List of users in the active Team Create session | legacy-team-collaboration:manage | EXPERIMENTAL | perApi:100/MIN;perOau:100/MIN | 
+GET /legacy-develop/v1/universes/multiget/permissions | Returns an array of granted and declined permissio | legacy-universe:manage | EXPERIMENTAL | perApi:100/MIN;perOau:100/MIN | 
+GET /legacy-develop/v1/universes/multiget/teamcreate | Gets TeamCreate settings for multiple universes sp | legacy-team-collaboration:manage | EXPERIMENTAL | perApi:100/MIN;perOau:100/MIN | 
+POST /legacy-develop/v1/universes/{universeId}/activate | Activates a universes. | legacy-universe:manage | EXPERIMENTAL | perApi:100/MIN;perOau:100/MIN | 
+POST /legacy-develop/v1/universes/{universeId}/deactivate | Deactivates a universe. | legacy-universe:manage | EXPERIMENTAL | perApi:100/MIN;perOau:100/MIN | 
+GET /legacy-develop/v1/universes/{universeId}/permissions | Returns list of granted and declined permissions r | legacy-universe:manage | EXPERIMENTAL | perApi:100/MIN;perOau:100/MIN | 
+GET /legacy-develop/v1/universes/{universeId}/teamcreate | Gets TeamCreate settings for an Roblox.Platform.Un | legacy-team-collaboration:manage | EXPERIMENTAL | perApi:100/MIN;perOau:100/MIN | 
+PATCH /legacy-develop/v1/universes/{universeId}/teamcreate | Edit team create settings for a universe. | legacy-team-collaboration:manage | EXPERIMENTAL | perApi:100/MIN;perOau:100/MIN | 
+DELETE /legacy-develop/v1/universes/{universeId}/teamcreate/memberships | Removes a user from a TeamCreate permissions list. | legacy-team-collaboration:manage | EXPERIMENTAL | perApi:100/MIN;perOau:100/MIN | 
+GET /legacy-develop/v1/user/groups/canmanage | Gets a list of Groups that a user can manage. | legacy-group:manage | EXPERIMENTAL | perApi:100/MIN;perOau:100/MIN | 
+DELETE /legacy-develop/v2/teamtest/{placeId} | Close a game instance that is being used for team  | legacy-team-collaboration:manage | EXPERIMENTAL | perApi:100/MIN;perOau:100/MIN | 
+POST /legacy-localization-tables/v1/autolocalization/games/{gameId}/autolocalizationtable |  | legacy-universe:manage | EXPERIMENTAL | perApi:100/MIN;perOau:100/MIN | 
+PATCH /legacy-localization-tables/v1/autolocalization/games/{gameId}/settings | Sets a game's auto-localization related settings | legacy-universe:manage | EXPERIMENTAL | perApi:100/MIN;perOau:100/MIN | 
+GET /legacy-localization-tables/v1/autolocalization/metadata | Metadata for AutoLocalization Configuration | legacy-universe:manage | EXPERIMENTAL | perApi:100/MIN;perOau:100/MIN | 
+GET /legacy-localization-tables/v1/localization-table/limits | Get limits for translation table entries operation | legacy-universe:manage | EXPERIMENTAL | perApi:100/MIN;perOau:100/MIN | 
+GET /legacy-localization-tables/v1/localization-table/tables/{assetId} | Get table information by the assetId of the table. | legacy-universe:manage | EXPERIMENTAL | perApi:100/MIN;perOau:100/MIN | 
+GET /legacy-localization-tables/v1/localization-table/tables/{tableId} | Get table information by the id of the table. | legacy-universe:manage | EXPERIMENTAL | perApi:100/MIN;perOau:100/MIN | 
+PATCH /legacy-localization-tables/v1/localization-table/tables/{tableId} | Updates the tables contents based on what is provi | legacy-universe:manage | EXPERIMENTAL | perApi:100/MIN;perOau:100/MIN | 
+GET /legacy-localization-tables/v1/localization-table/tables/{tableId}/entries | Gets a batch of entries for a table. | legacy-universe:manage | EXPERIMENTAL | perApi:100/MIN;perOau:100/MIN | 
+POST /legacy-localization-tables/v1/localization-table/tables/{tableId}/entries/translation-history | Gets the translation history for each entry passed | legacy-universe:manage | EXPERIMENTAL | perApi:100/MIN;perOau:100/MIN | 
+GET /legacy-localization-tables/v1/localization-table/tables/{tableId}/entry-count | Gets the number of entries in the specified table | legacy-universe:manage | EXPERIMENTAL | perApi:100/MIN;perOau:100/MIN | 
+POST /legacy-publish/v1/badges/{badgeId}/icon | Overwrites a badge icon with a new one. | legacy-badge:manage | EXPERIMENTAL | perApi:100/MIN;perOau:100/MIN | 
+GET /matchmaking-api/v1/client-status | Get the client-status |  | BETA |  | 
+POST /matchmaking-api/v1/client-status | Set the client-status |  | BETA |  | 
+POST /matchmaking-api/v1/game-instances/forecast-update | Forecast the outcome of launching an update |  | BETA |  | 
+GET /matchmaking-api/v1/game-instances/get-update-status | Get the rollout status of an update |  | BETA |  | 
+POST /matchmaking-api/v1/game-instances/launch-update | Launch a game update |  | BETA |  | 
+POST /matchmaking-api/v1/game-instances/shutdown | Shutdown game instances. |  | BETA |  | 
+POST /matchmaking-api/v1/game-instances/shutdown-all | Shutdown all game instances. |  | BETA |  | 
+POST /matchmaking-api/v1/matchmaking/player-attribute | Create a PlayerAttributeDefinition. |  | BETA |  | 
+DELETE /matchmaking-api/v1/matchmaking/player-attribute/{attributeId} | Delete the PlayerAttributeDefinition specified by  |  | BETA |  | 
+PATCH /matchmaking-api/v1/matchmaking/player-attribute/{attributeId} | Update the PlayerAttributeDefinition specified by  |  | BETA |  | 
+GET /matchmaking-api/v1/matchmaking/player-attributes/{universeId} | List all PlayerAttributeDefinitions of a universe. |  | BETA |  | 
+POST /matchmaking-api/v1/matchmaking/scoring-configuration | Creates a matchmaking scoring configuration. |  | BETA |  | 
+GET /matchmaking-api/v1/matchmaking/scoring-configuration/default-weights |  |  | BETA |  | 
+GET /matchmaking-api/v1/matchmaking/scoring-configuration/generate-mock-servers |  |  | BETA |  | 
+POST /matchmaking-api/v1/matchmaking/scoring-configuration/place | Sets a matchmaking scoring configuration for a pla |  | BETA |  | 
+DELETE /matchmaking-api/v1/matchmaking/scoring-configuration/place/{placeId} | Removes the matchmaking scoring configuration for  |  | BETA |  | 
+DELETE /matchmaking-api/v1/matchmaking/scoring-configuration/{scoringConfigurationId} | Deletes a matchmaking scoring configuration. |  | BETA |  | 
+GET /matchmaking-api/v1/matchmaking/scoring-configuration/{scoringConfigurationId} | Updates a matchmaking scoring configuration. |  | BETA |  | 
+PATCH /matchmaking-api/v1/matchmaking/scoring-configuration/{scoringConfigurationId} | Updates a matchmaking scoring configuration. |  | BETA |  | 
+POST /matchmaking-api/v1/matchmaking/scoring-configuration/{scoringConfigurationId}/signals | Creates a matchmaking scoring configuration signal |  | BETA |  | 
+DELETE /matchmaking-api/v1/matchmaking/scoring-configuration/{scoringConfigurationId}/signals/{signalName} | Deletes a matchmaking scoring configuration custom |  | BETA |  | 
+PATCH /matchmaking-api/v1/matchmaking/scoring-configuration/{scoringConfigurationId}/signals/{signalName} | Updates a matchmaking scoring configuration signal |  | BETA |  | 
+GET /matchmaking-api/v1/matchmaking/scoring-configurations/{universeId} | List all matchmaking scoring configurations for a  |  | BETA |  | 
+GET /matchmaking-api/v1/matchmaking/scoring-configurations/{universeId}/places | List all places with a matchmaking scoring configu |  | BETA |  | 
+POST /matchmaking-api/v1/matchmaking/server-attribute | Create a ServerAttributeDefinition. |  | BETA |  | 
+DELETE /matchmaking-api/v1/matchmaking/server-attribute/{attributeId} | Delete the ServerAttributeDefinition specified by  |  | BETA |  | 
+PATCH /matchmaking-api/v1/matchmaking/server-attribute/{attributeId} | Update the ServerAttributeDefinition specified by  |  | BETA |  | 
+GET /matchmaking-api/v1/matchmaking/server-attributes/{universeId} | List all ServerAttributeDefinitions of a universe. |  | BETA |  | 
+GET /matchmaking-api/v1/matchmaking/universe/{universeId}/feature-flags | Gets feature flags for a customized matchmaking fo |  | BETA |  | 
+POST /messaging-service/v1/universes/{universeId}/topics/{topic} | Publish a cross-server message to a universe | universe-messaging-service:publish | BETA | perApi:5000/MIN;perOau:5000/MIN | HS
+GET /ordered-data-stores/v1/universes/{universeId}/orderedDataStores/{orderedDataStore}/scopes/{scope}/entries |  | universe.ordered-data-store.scope.entry:read | BETA | perApi:500/MIN | 
+POST /ordered-data-stores/v1/universes/{universeId}/orderedDataStores/{orderedDataStore}/scopes/{scope}/entries |  | universe.ordered-data-store.scope.entry:write | BETA | perApi:500/MIN | 
+DELETE /ordered-data-stores/v1/universes/{universeId}/orderedDataStores/{orderedDataStore}/scopes/{scope}/entries/{entry} |  | universe.ordered-data-store.scope.entry:write | BETA | perApi:500/MIN | 
+GET /ordered-data-stores/v1/universes/{universeId}/orderedDataStores/{orderedDataStore}/scopes/{scope}/entries/{entry} |  | universe.ordered-data-store.scope.entry:read | BETA | perApi:500/MIN | 
+PATCH /ordered-data-stores/v1/universes/{universeId}/orderedDataStores/{orderedDataStore}/scopes/{scope}/entries/{entry} |  | universe.ordered-data-store.scope.entry:write | BETA | perApi:500/MIN | 
+POST /ordered-data-stores/v1/universes/{universeId}/orderedDataStores/{orderedDataStore}/scopes/{scope}/entries/{entry}:increment |  | universe.ordered-data-store.scope.entry:write | BETA | perApi:500/MIN | 
+GET /place-version-history-api/v1/{placeId}/contributors | Endpoint used to fetch all previous contributors o | universe.place:read | EXPERIMENTAL | perApi:120/MIN | 
+GET /place-version-history-api/v1/{placeId}/history | Endpoint used to get place versions, using various | universe.place:read | EXPERIMENTAL | perApi:120/MIN | 
+POST /place-version-history-api/v1/{placeId}/version/{version}/notes | Endpoint used to modify the notes of a particular  | universe.place:write | EXPERIMENTAL | perApi:100/MIN | 
+GET /server-management/v1/universes/{universeId}/places/{placeId}/game-servers:filter-options | Gets available filter options for game servers. | universe:read | BETA | perApi:100/MIN;perOau:100/MIN | HS
+GET /server-management/v1/universes/{universeId}/places/{placeId}/versions/{versionNumber}/game-servers | Lists game servers for a specific place version. | universe:read | BETA | perApi:100/MIN;perOau:100/MIN | HS
+GET /server-management/v1/universes/{universeId}/places/{placeId}/versions/{versionNumber}/game-servers/{jobId}/logs | Lists game server logs for a specific server job i | universe:read | BETA | perApi:100/MIN;perOau:100/MIN | 
+GET /server-management/v1/universes/{universeId}/restarts | List restart statuses for a universe. | universe:read | BETA | perApi:100/MIN;perOau:100/MIN | HS
+POST /server-management/v1/universes/{universeId}/restarts | Launch a game server restart for a universe. | universe:write | BETA | perApi:100/MIN;perOau:100/MIN | HS
+GET /server-management/v1/universes/{universeId}/restarts:forecast | Forecast the impact of restarting game servers for | universe:read | BETA | perApi:100/MIN;perOau:100/MIN | HS
+GET /thumbnail-personalization-api/v1/universes/{universeId}/personalization | Gets a page of thumbnail personalization configura | universe.thumbnail:read | EXPERIMENTAL | perApi:100/MIN;perOau:100/MIN | 
+POST /thumbnail-personalization-api/v1/universes/{universeId}/personalization/create | Creates a new active thumbnail personalization con | universe.thumbnail:write | EXPERIMENTAL | perApi:50/MIN;perOau:50/MIN | 
+POST /thumbnail-personalization-api/v1/universes/{universeId}/personalization/update | Replaces the homepage thumbnails in an active pers | universe.thumbnail:write | EXPERIMENTAL | perApi:50/MIN;perOau:50/MIN | 
+DELETE /thumbnail-personalization-api/v1/universes/{universeId}/thumbnails | Deletes homepage thumbnails from a universe. | universe.thumbnail:write | EXPERIMENTAL | perApi:50/MIN;perOau:50/MIN | 
+GET /thumbnail-personalization-api/v1/universes/{universeId}/thumbnails | Gets a page of homepage thumbnails for a universe. | universe.thumbnail:read | EXPERIMENTAL | perApi:100/MIN;perOau:100/MIN | 
+POST /thumbnail-personalization-api/v1/universes/{universeId}/thumbnails/uploads | Uploads one or more images to create homepage thum | universe.thumbnail:write | EXPERIMENTAL | perApi:50/MIN;perOau:50/MIN | 
+GET /thumbnail-personalization-api/v1/universes/{universeId}/thumbnails/uploads/status | Gets the processing status of homepage thumbnail u | universe.thumbnail:read | EXPERIMENTAL | perApi:100/MIN;perOau:100/MIN | 
+DELETE /toolbox-service/v1/saves | Deletes a save. | creator-store-save:write | BETA | perApi:200/MIN;perOau:200/MIN | 
+GET /toolbox-service/v1/saves | Gets saves from a collection. | creator-store-save:read | BETA | perApi:200/MIN;perOau:200/MIN | 
+POST /toolbox-service/v1/saves | Creates a save. | creator-store-save:write | BETA | perApi:200/MIN;perOau:200/MIN | 
+POST /toolbox-service/v1/saves:bulkDelete | Bulk deletes saves. | creator-store-save:write | BETA | perApi:200/MIN;perOau:200/MIN | 
+GET /toolbox-service/v2/assets/{id} | Get Creator Store Asset Details | creator-store-product:read | BETA | perApi:1000/MIN;perOau:1000/MIN | 
+GET /toolbox-service/v2/assets:search | Search Creator Store Assets | creator-store-product:read | BETA | perApi:1000/MIN;perOau:1000/MIN | HS
+POST /toolbox-service/v2/assets:search | Search Creator Store Assets | creator-store-product:read | BETA | perApi:1000/MIN;perOau:1000/MIN | HS
+POST /universes/v1/{universeId}/places/{placeId}/versions |  | universe-places:write | BETA | perApi:30/MIN | 
+DELETE /virtual-events/v3/game-events/{eventId} | Permanently delete an existing game event. Returns | universe.event:write | EXPERIMENTAL | perApi:20/MIN;perOau:20/MIN | 
+GET /virtual-events/v3/game-events/{eventId} | Get a single game event by ID. | universe.event:read | EXPERIMENTAL | perApi:100/MIN;perOau:100/MIN | 
+PATCH /virtual-events/v3/game-events/{eventId} | Partially update a game event. Only fields present | universe.event:write | EXPERIMENTAL | perApi:20/MIN;perOau:20/MIN | 
+GET /virtual-events/v3/universes/{universeId}/game-events | List game events under a universe. | universe.event:read | EXPERIMENTAL | perApi:100/MIN;perOau:100/MIN | 
+POST /virtual-events/v3/universes/{universeId}/game-events | Create a new game event. Returns the full resource | universe.event:write | EXPERIMENTAL | perApi:20/MIN;perOau:20/MIN | 
