@@ -1,0 +1,20 @@
+---
+base: luau
+name: robloxlocal
+globals:
+  game:
+    struct: DataModel
+  script:
+    any: true
+  warn:
+    args:
+      - type: "..."
+  typeof:
+    args:
+      - type: any
+structs:
+  DataModel:
+    GetService:
+      method: true
+      args:
+        - type: string

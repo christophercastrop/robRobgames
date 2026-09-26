@@ -22,6 +22,16 @@ La implementación se hará en este mismo monorepo siguiendo `docs/FACTORY-BACKL
 - **No scraping que incumpla ToS.** Fuentes permitidas en `docs/inventories/DATA-SOURCES.md`.
 - **YAGNI.** Antes de construir un componente propio, comprueba la tabla Build-vs-Buy (`docs/research/19_FACTORY_INFRASTRUCTURE.md`).
 
+## Cómo verificar cambios
+
+```bash
+tools/ci/install-tools.sh          # Linux: descarga la toolchain pinneada en rokit.toml a .tools/ (en Win/macOS: rokit install)
+tools/ci/check.sh                  # format → lint → typecheck → unit (Lune) → build (Rojo); lo mismo que corre CI
+FACTORY_SELENE_OFFLINE=1 tools/ci/check.sh   # si selene no puede descargar la API dump de Roblox (proxy TLS)
+```
+
+Los pasos humanos (cuenta, universes, API keys, Studio MCP) están en `ops/ROBLOX_SETUP.md`.
+
 ## Convenciones previstas (cuando exista código)
 
 - Luau en modo `--!strict`, formateado con StyLua, lint con Selene, tipos con luau-lsp.

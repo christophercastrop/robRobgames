@@ -3,6 +3,17 @@
 Complejidad: S (≤1 día-agente), M (2–4), L (5–10), XL (>10). Riesgo: B/M/A. Valor esperado: B/M/A/MA (muy alto).
 P0 = necesario para el MVP de la fábrica (30 días). P1 = 90 días / piloto. P2 = segundo juego y escala B. P3 = escala C/D u opcional.
 
+## Progreso (actualizar en cada PR)
+
+| Fecha | Top-20 | Backlog | Estado | Evidencia |
+|---|---|---|---|---|
+| 2026-09-26 | 1 Aprobar decisiones | — | **Pendiente (humano)** | Checklist en `ops/ROBLOX_SETUP.md` §Acción 1 |
+| 2026-09-26 | 2 Identidad/grupo/Plus | P0-03 | **Pendiente (humano)** | `ops/ROBLOX_SETUP.md` §Acción 2 |
+| 2026-09-26 | 3 Universes + API keys | P0-03 | **Pendiente (humano)** | `ops/ROBLOX_SETUP.md` §Acción 3 (scopes exactos) |
+| 2026-09-26 | 4 Monorepo base | P0-01 | **Hecho** | `rokit.toml`, `.luaurc`, `stylua.toml`, `selene.toml`, `packages/sdk` (Log, Loader + 6 tests), `templates/game-template` |
+| 2026-09-26 | 5 CI estático | P0-02 | **Hecho (pendiente de primera ejecución en GitHub)** | `.github/workflows/static.yml` + `tools/ci/check.sh`, verificado en local (Linux) |
+| 2026-09-26 | 6 Studio plane | P0-04 | **Pendiente (humano, Win/macOS)** | `ops/ROBLOX_SETUP.md` §Acción 6 |
+
 ## P0
 
 | ID | Component | Description | Dependency | Complexity | Risk | Expected value | Acceptance criteria |

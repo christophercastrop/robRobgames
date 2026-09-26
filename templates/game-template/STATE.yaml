@@ -1,0 +1,5 @@
+# Estado del juego en la state machine (docs/research/06_AGENT_ARCHITECTURE.md §4).
+slug: game-template
+state: TEMPLATE
+maturity_target: Minimal
+owner: null

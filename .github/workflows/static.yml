@@ -1,0 +1,42 @@
+# P0-02 — checks estáticos del monorepo (docs/research/09_GAME_PRODUCTION_PIPELINE.md §6).
+# Mismo script que en local/sesiones cloud: tools/ci/check.sh.
+name: static
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: static-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  static:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Cache toolchain
+        uses: actions/cache@v4
+        with:
+          path: .tools
+          key: tools-${{ runner.os }}-${{ hashFiles('rokit.toml', 'tools/ci/install-tools.sh') }}
+
+      - name: Install toolchain (versions from rokit.toml)
+        run: tools/ci/install-tools.sh
+
+      - name: Static checks (format, lint, typecheck, unit, build)
+        run: tools/ci/check.sh
+
+      - name: Upload place builds
+        uses: actions/upload-artifact@v4
+        with:
+          name: places-${{ github.sha }}
+          path: out/*.rbxl
+          retention-days: 14

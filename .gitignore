@@ -1,0 +1,28 @@
+# Builds y artefactos
+/out/
+*.rbxl
+*.rbxlx
+*.rbxm
+*.rbxmx
+!**/fixtures/**/*.rbxm
+sourcemap.json
+/tools/ci/.cache/
+roblox.yml
+roblox.yml.bak
+globalTypes.d.luau
+
+# Paquetes Wally
+Packages/
+ServerPackages/
+DevPackages/
+
+# Entornos y secretos
+ops/environments.toml
+.env
+*.key
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.tools/

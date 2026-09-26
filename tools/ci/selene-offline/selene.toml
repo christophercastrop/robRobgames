@@ -1,0 +1,6 @@
+# Configuración de selene SÓLO para entornos sin acceso a la API dump de Roblox (ver tools/ci/check.sh).
+# Mantener las mismas reglas que /selene.toml.
+std = "robloxlocal"
+
+[lints]
+deprecated = "deny"

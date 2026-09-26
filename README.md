@@ -7,6 +7,12 @@ Investigación, arquitectura y blueprint E2E para una fábrica de juegos Roblox 
 ese día contra documentación oficial de Roblox (Creator Hub / repo `Roblox/creator-docs`, commit del 2026-09-26),
 el OpenAPI oficial de Open Cloud, anuncios oficiales del DevForum o repositorios Git (fecha del último commit).
 
+## Estado del repositorio
+
+Investigación completa (`docs/`) + inicio de implementación: toolchain pinneada (`rokit.toml`), SDK mínimo (`packages/sdk`),
+template de juego Rojo (`templates/game-template`), CI estático (`.github/workflows/static.yml`, `tools/ci/`) y runbook de pasos humanos
+(`ops/ROBLOX_SETUP.md`). Progreso en `docs/FACTORY-BACKLOG.md` §Progreso.
+
 ## Cómo leer esto
 
 1. Empieza por [`docs/RECOMMENDED-ARCHITECTURE.md`](docs/RECOMMENDED-ARCHITECTURE.md) (documento final, secciones A–T + Top 20 next actions).

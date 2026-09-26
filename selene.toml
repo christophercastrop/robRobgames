@@ -1,0 +1,5 @@
+std = "roblox"
+
+[lints]
+# Prohibidos por 12_SECURITY.md; selene no los detecta todos: el scanner de seguridad (P0-16) complementa.
+deprecated = "deny"

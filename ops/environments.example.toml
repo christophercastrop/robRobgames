@@ -1,0 +1,19 @@
+# Copia a ops/environments.toml y rellena IDs. NUNCA pongas API keys aquí: van en GitHub Environments / secret manager.
+# ops/environments.toml está en .gitignore.
+
+[group]
+id = 0              # Roblox group ID de la fábrica
+
+[ci]
+universe_id = 0     # "Factory CI"
+
+[ci.places]
+hello-factory = 0   # place de CI por juego
+
+[games.hello-factory.staging]
+universe_id = 0
+place_id = 0
+
+[games.hello-factory.production]
+universe_id = 0
+place_id = 0
