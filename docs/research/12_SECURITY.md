@@ -20,6 +20,11 @@ Reglas de arquitectura (enforced por SDK + auditoría):
 7. **Compras sólo por `ProcessReceipt`** idempotente; ownership de passes verificado en servidor (`UserOwnsGamePassAsync`) y cacheado con TTL.
 8. **Transacciones económicas idempotentes** con `txId`; ledger de auditoría (muestreo) para detectar anomalías.
 
+Guía oficial de referencia [HV]: `scripting/security/` del Creator Hub — *security tactics* (never trust the client, server authority, security by design),
+*client-server boundary* (validación de contexto/tipos/valores, **NaN**, rate limiting con token bucket, ProximityPrompt/ClickDetector/DragDetector, DataStore y
+MarketplaceService), *network ownership* (validación de movimiento), *server-side detection* (heurísticas, **honeypots**, consecuencias), *access control*
+(teleports seguros; todo lo replicado al cliente es legible/decompilable), *third-party vulnerabilities*.
+
 ## 2. Patrones de explotación y controles
 
 | Ataque | Mecanismo | Control |
@@ -37,7 +42,9 @@ Reglas de arquitectura (enforced por SDK + auditoría):
 | Rate abuse / DoS de servidor | Spam de remotes pesados | Token bucket + coste por remote; desconexión |
 | DataStore corruption | Escribir datos malformados vía flujos legítimos | Esquema validado antes de guardar; `UpdateAsync` con validación; versiones y rollback |
 | Backdoors en assets | Modelos del Creator Store con `require(<id>)`, `getfenv`, `loadstring`, scripts ofuscados | Prohibido insertar assets externos no auditados; scanner estático en CI (§7); `LoadStringEnabled=false` |
-| Chat/texto de usuario | Texto sin filtrar mostrado a otros | `TextService:FilterStringAsync` obligatorio para cualquier texto de usuario visible a otros (SDK `Moderation`) |
+| Chat/texto de usuario | Texto sin filtrar mostrado a otros | `TextService:FilterStringAsync` obligatorio para cualquier texto de usuario visible a otros (SDK `Moderation`); Roblox puede **retirar el juego** si detecta que no se filtra [HV `safety.md`] |
+| Jugadores disruptivos / alts | Acoso, estafas, reincidencia con cuentas alternativas | `Players:BanAsync()` con razón pública/privada y aplicación a alts conocidas; `Kick` para expulsión puntual; `IsVerified` para gating de ranking/trading [HV `safety.md`, `production/bans.md`] |
+| Detección de cheats | Exploits no previstos | Heurísticas server-side + **honeypots** (remotes/objetos señuelo que sólo un exploiter tocaría) [HV `server-side-detection.md`] |
 | Precio arbitraje regional | Comprar barato en una región y transferir | `GetUsersPriceLevelsAsync` para condicionar trading/gifting [HV `regional-pricing.md`] |
 
 ## 3. `roblox-security-audit` (§44) — checklist ejecutable

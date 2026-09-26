@@ -10,6 +10,7 @@
 | **Experiments** nativo | D1, D7, playtime, ARPU, ARPPU, payer conversion, session time por variante; stats por API | Sí (EXPERIMENTAL) | HV |
 | **Server logs** | Logs por servidor/versión con filtro CEL | Sí (BETA) | HV |
 | **Eventos propios → warehouse externo** | Event-level data, joins arbitrarios, cohortes a medida | Sí (HttpService, 500 req/min/servidor; batching) | Diseño propio |
+| **Safety dashboard** | Abuse report submitters por 1,000 h de juego (requiere ≥1,000 h/día), reports por categoría y canal (Avatar, Chat, Voice, Experience, Audio), insight al superar p90 | Dashboard (cobertura en Query API por verificar; la comunidad reporta una categoría «safety» [HT]) | HV (`safety.md`) |
 | **Alerts** nativas | Alertas en tiempo real de performance/errores; alertas tempranas de daño en experimentos (anunciado ago-2026) | Dashboard | HV (newsroom 2026-08) |
 
 **[DEC-018]** Estrategia en dos niveles: (1) **Roblox-native first** (AnalyticsService + Query API + Experiments) — gratis, alineado con las métricas que usa
@@ -59,6 +60,7 @@ de cardinalidad [HV]); los 3 custom fields tienen significado fijo en toda la f�
 | Friend joins / co-play | Parcial | Intentional co-play days (dashboard) + eventos propios | |
 | Crash/error rate | Sí | Performance dashboard, error report, server logs API | |
 | Server performance | Sí | Performance dashboard (heartbeat, memoria) | |
+| Abuse reports / 1,000 h de juego | Sí (umbral ≥1,000 h/día) | Safety dashboard | Guardrail en cada release de features sociales/UGC |
 | Acquisition source (home, search, sponsored, friends) | Sí (dashboard) | Acquisition | |
 | **CAC** | Sí para ads propios (Ads Manager reporting) | Ads dashboard / Ads API (E) | |
 | Métricas de competidores | **No** (salvo CCU/visitas/favs/votos públicos) | Trend Engine | |

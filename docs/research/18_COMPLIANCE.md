@@ -27,6 +27,14 @@
 | Metadata | No keywords irrelevantes, no giveaways como gancho, no engaño, originalidad | HV `discovery.md` |
 | Regional | Roblox puede restringir contenido/juegos por país | HV `regional-content-availability.md` |
 | 18+ DevEx | Requisitos R15-only para la tasa US 18+ | HV `18-plus-devex-rate.md` |
+| **Safety guide (2026-09-26)** | Filtrar **todo** texto de usuario visible a otros con `TextService:FilterStringAsync()` — si Roblox detecta que no se filtra, **puede retirar el juego** hasta corregirlo | HV `safety.md` |
+| Espacios privados | En juegos accesibles a <18, evitar entornos que transcurren principalmente en espacios privados (dormitorios, baños, armarios); limitar con *bounding boxes* assets que invitan a mal uso (camas, superficies para dormir) | HV `safety.md` + [DevForum "Strengthening our safety policies and tools"](https://devforum.roblox.com/t/strengthening-our-safety-policies-and-tools/3882864) |
+| Entornos adultos | Juegos que transcurren principalmente en discotecas/bares deben restringirse a mayores de 18 | HV `safety.md` |
+| UGC en juego | Pre-moderación, contenido efímero, privilegios de UGC sólo a usuarios de confianza o sólo opciones predefinidas | HV `safety.md` (recomendación) |
+| Editores de avatar in-game | Monitorizar y restringir si aumentan los abusos | HV `safety.md` (recomendación) |
+| Moderación de jugadores | `Players:BanAsync()` (razón pública/privada, duración, detección de alts), `Player:Kick()`, gating con `Player:IsVerified()` para ranking/trading | HV `safety.md`, `production/bans.md` |
+| Anuncios in-game | `PolicyService` también gobierna la elegibilidad de anuncios (`AreAdsAllowed`), branded content y enlaces sociales | HV `safety.md` |
+| Safety dashboard | Creator Dashboard → Safety → Overview: *abuse report submitters per 1,000 playtime hours* (visible con ≥1,000 h/día de juego la semana anterior), reports por categoría, filtro por canal (Avatar, Chat, Voice, Experience, Audio), insight automático si se supera el percentil 90 | HV `safety.md` |
 
 ## 2. Factory Policy Engine (§53)
 
@@ -62,6 +70,11 @@ BLOCK / WARN / PASS   (+ borrador de respuestas del Maturity & Compliance Questi
 | POL-016 | Claves de DataStore sin patrón `{UserId}` compatible con RTBF | estático | WARN |
 | POL-017 | Beneficios de suscripción condicionados a acciones externas | GDD + código | BLOCK |
 | POL-018 | Metadata no coincide con gameplay (thumbnail muestra contenido inexistente) | visión + humano | WARN |
+| POL-019 | Juego con target <18 cuyo contenido principal ocurre en espacios privados (dormitorio/baño/armario) o con assets "cama/superficie para dormir" sin bounding box de uso | GDD + tags de assets + LLM | BLOCK |
+| POL-020 | Entorno principal "adulto" (discoteca/bar) sin restricción 18+ | GDD + LLM | BLOCK |
+| POL-021 | UGC compartido (texto, dibujo, construcciones, outfits) sin al menos una salvaguarda: pre-moderación, efímero, privilegio por confianza o sólo presets | GDD + código | BLOCK |
+| POL-022 | Sistema de moderación ausente: sin `BanAsync`/`Kick` accesible a herramientas de moderación del juego ni runbook | código + ops | WARN |
+| POL-023 | Anuncios in-game (immersive/rewarded) sin comprobar `PolicyService` (`AreAdsAllowed`) / `AdService` availability | estático | BLOCK |
 
 Salida: `games/<slug>/compliance/policy-report.md` + `questionnaire-draft.md`. **El humano** envía el cuestionario y firma el release.
 
@@ -92,6 +105,21 @@ competitor analysis (datos públicos + playtest humano)
 | Trade dress excesivamente parecido (conjunto de nombre+icono+paleta+loop idéntico) | **Originality score**: nº de ejes diferentes (mecánica, tema, meta-loop, social, estilo visual) vs cada competidor top-3; mínimo 2 ejes principales distintos y 0 coincidencias de nombre/arte | Reviewer (fork) intenta argumentar que es un clon; humano decide |
 
 **⛔ STOP-02**: cualquier concepto que dependa de IP de terceros (licencias, parodias de franquicias, personajes de anime reconocibles) requiere decisión legal humana.
+
+## 3b. Diseño safety-first (checklist obligatoria del GDD)
+
+Derivada de `safety.md` [HV]; la skill S12 la verifica en G1 y G3:
+
+- [ ] Todo texto de usuario visible a otros pasa por `SDK.Moderation.filterForBroadcast` / `filterForUser` (wrappers de `TextService:FilterStringAsync`).
+- [ ] Cada feature de UGC declara su salvaguarda (pre-moderación, efímero, trusted-only o presets).
+- [ ] Sin entornos principales en espacios privados para audiencias <18; assets tipo cama con bounding box/limitación de interacción.
+- [ ] Entornos adultos → 18+ o rediseño.
+- [ ] Editor de avatar in-game: plan de monitorización y kill switch (`kill.avatar_editor`).
+- [ ] Moderación: comando/panel server-side con `BanAsync` (razón pública y privada, duración, alts) y `Kick`; bans persistentes vía Ban API / User Restrictions API (Open Cloud).
+- [ ] Features de ranking/trading de alto valor evaluadas para gating con `IsVerified`.
+- [ ] `PolicyService`: anuncios, paid random items, trading, social links, branded content.
+- [ ] Cuestionario de madurez actualizado **inmediatamente** si el contenido cambia.
+- [ ] Safety dashboard en el panel semanal del Live Analyst (alerta si aparece el insight de p90).
 
 ## 4. Gates de compliance en el pipeline
 

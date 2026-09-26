@@ -34,6 +34,10 @@ Access date de todas las fuentes: **2026-09-26**. "Update date" = fecha publicad
 | Audio assets | creator-docs `audio/assets.md` | 2026 | Límites de subida |
 | Modeling budgets | creator-docs `art/modeling/*` | 2026 | 20k tris, 1024² |
 | Assistant skills | creator-docs `assistant/skills.md` | 2026 | — |
+| Safety guide («How you can help us make Roblox safer») | https://create.roblox.com/docs/safety (es-es: https://create.roblox.com/docs/es-es/safety) | commit 2026-09-26 | Texto, bans, IsVerified, PolicyService, safety dashboard, espacios privados |
+| Security guides | creator-docs `scripting/security/*` | 2026 | Never trust the client, validación, honeypots |
+| Bans dashboard | creator-docs `production/bans.md` | 2026 | Alts, razones pública/privada |
+| DevForum: Strengthening our safety policies and tools | https://devforum.roblox.com/t/strengthening-our-safety-policies-and-tools/3882864 | 2025 | Espacios privados / <17 |
 | DevForum: Studio MCP updates & external LLM | https://devforum.roblox.com/t/studio-mcp-server-updates-and-external-llm-support-for-assistant/4415631 | 2026-02-21 | — |
 | DevForum: built-in MCP + playtest automation | https://devforum.roblox.com/t/assistant-updates-studio-built-in-mcp-server-and-playtest-automation/4474643 | 2026-03-05 | — |
 | DevForum: new Open Cloud APIs (analytics, events, experiments, thumbnails) | https://devforum.roblox.com/t/new-opencloud-apis-for-analytics-events-experiments-and-thumbnail-personalization/4828676 | 2026-08-24 | — |

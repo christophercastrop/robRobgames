@@ -42,7 +42,7 @@ Criterio: se comparte si (a) ≥2 juegos lo necesitan igual, (b) su fallo es car
 | `Progression` / `Prestige` | **Parcial** (primitivas: XP curves, rebirth transaction) | La forma varía por juego |
 | `Observability` (logger estructurado, error capture, métricas de servidor, heartbeat) | **Sí** | Incidentes |
 | `AntiCheat` (validadores de movimiento, sanity checks, rate limits, flags de sospecha) | **Sí** (primitivas) | Reglas específicas por juego |
-| `Moderation` (TextService filtering helpers, reports, user restrictions) | **Sí** | Obligatorio para texto de usuario |
+| `Moderation` (wrappers de `TextService:FilterStringAsync`, `Players:BanAsync`/`Kick`, gating con `Player:IsVerified`, salvaguardas de UGC, panel de moderación server-side) | **Sí** | Obligatorio: sin filtrado Roblox puede retirar el juego [HV `safety.md`] |
 | `Localization` (helpers + extracción de strings) | **Sí** | |
 | `Notifications` (experience notifications con plantillas) | **Sí** | |
 | `Social` / `Parties` (invites, friends-in-server, share links) | **Sí** (primitivas) | Co-play es señal de discovery |
