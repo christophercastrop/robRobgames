@@ -94,7 +94,7 @@ Roblox Studio corre en **Windows y macOS**, no en Linux [HV, requisitos de Studi
 | DevEx fees Q2 2026 | ~$363 M (+15% a/a) | HT (mismo) |
 | Composición de edad | Más usuarios ≥13 que <13 | HV (`production/roblox-user-base.md`) |
 | Consolas | "200M+ Xbox and PlayStation players" como audiencia potencial | HV (`console-guidelines.md`) |
-| Distribución por dispositivo | No publicada oficialmente de forma actualizada | **Dato no observable públicamente**; en tu juego: Analytics breakdown por `Platform` (HV) |
+| Distribución por dispositivo | Android ≈ **65%** de la base típica de un juego; ~60% de esos con 2–4 GB RAM; >50% de jugadores en dispositivos PassMark 10k–20k | HV (`performance-optimization/test-on-hardware.md`); por juego: breakdown `Platform` de Analytics |
 
 ## 6. Assistant de Roblox (competidor/aliado del agente propio)
 
